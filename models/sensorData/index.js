@@ -7,7 +7,6 @@ import LampesSensors from './lampSensor.model.js';
 import PosteSensors from './postSensor.model.js';
 import SensorData from './sensorData.model.js';
 
-
 module.exports = {
     CompteurSensors,
     ConcentrateurSensors,
@@ -16,5 +15,5 @@ module.exports = {
     IoTSensors,
     LampesSensors,
     PosteSensors,
-    SensorData,
+    SensorData
 };

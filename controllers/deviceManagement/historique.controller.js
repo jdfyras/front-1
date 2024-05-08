@@ -1,7 +1,3 @@
-export const getAppHistory = () =>{
-    
-}
+export const getAppHistory = () => {};
 
-export const getAllAppsHistory = () =>{
-    
-}
+export const getAllAppsHistory = () => {};

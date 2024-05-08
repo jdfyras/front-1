@@ -1,19 +1,13 @@
 import Address from '../../models/location/adress.model.js';
 
-const createAddress = () => { }
+const createAddress = () => {};
 
-const getAddress = () => { }
+const getAddress = () => {};
 
-const getAllAddresses = () => { }
+const getAllAddresses = () => {};
 
-const updateAddress = () => { }
+const updateAddress = () => {};
 
-const deleteAddress = () => { }
+const deleteAddress = () => {};
 
-export {
-    createAddress,
-    getAddress,
-    getAllAddresses,
-    updateAddress,
-    deleteAddress
-};
+export { createAddress, getAddress, getAllAddresses, updateAddress, deleteAddress };

@@ -1,15 +1,12 @@
-
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 
 // Définition du schéma du transformateur
 const transformateurSchema = new mongoose.Schema({
     marque: {
-        type: String,
-
+        type: String
     },
     modele: {
-        type: String,
-
+        type: String
     },
     puissance: {
         type: Number,
@@ -40,4 +37,3 @@ const transformateurSchema = new mongoose.Schema({
 // Création du modèle MongoDB basé sur le schéma
 const Transformateur = mongoose.model('Transformateur', transformateurSchema);
 export default Transformateur;
-

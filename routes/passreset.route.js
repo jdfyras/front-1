@@ -1,8 +1,7 @@
 import express from 'express';
-import reset from '../controllers/userManagement/passwordController.js'
+import reset from '../controllers/userManagement/passwordController.js';
 const router = express.Router();
 
-
-router.post("/", reset);
+router.post('/', reset);
 
 export default router;

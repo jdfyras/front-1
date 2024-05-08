@@ -1,14 +1,14 @@
 const Poste = require('../models/Poste');
 
-const createPoste = () => { }
+const createPoste = () => {};
 
-const getPoste = () => { }
+const getPoste = () => {};
 
-const getAllPostes = () => { }
+const getAllPostes = () => {};
 
-const updatePoste = () => { }
+const updatePoste = () => {};
 
-const deletePoste = () => { }
+const deletePoste = () => {};
 
 module.exports = {
     createPoste,

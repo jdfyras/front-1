@@ -6,13 +6,13 @@ export const addUser = async (req, res) => {
         // Validate required fields
         const { username, password, role, email, etat } = req.body;
         if (!username || !password || !role || !email || !etat) {
-            throw new Error("All fields are required");
+            throw new Error('All fields are required');
         }
 
         // Check if user with the same email already exists
         const existingUser = await User.findOne({ email });
         if (existingUser) {
-            throw new Error("User with this email already exists");
+            throw new Error('User with this email already exists');
         }
 
         // Hash the password
@@ -28,12 +28,11 @@ export const addUser = async (req, res) => {
         });
 
         // Send response
-        res.status(200).json({ msg: "new user was created ", data: newUser });
-
+        res.status(200).json({ msg: 'new user was created ', data: newUser });
     } catch (error) {
         res.status(400).json({ error: error.message });
     }
-}
+};
 
 // Controller function to handle user update
 export const updateUser = async (req, res) => {
@@ -56,7 +55,7 @@ export const deleteUser = async (userId) => {
         // Check if user exists
         const user = await User.findById(userId);
         if (!user) {
-            throw new Error("User not found");
+            throw new Error('User not found');
         }
 
         // Delete user
@@ -66,7 +65,7 @@ export const deleteUser = async (userId) => {
     } catch (error) {
         throw new Error(`Error deleting user: ${error.message}`);
     }
-}
+};
 
 export const getUser = async (req, res) => {
     const userId = req.params.id;
@@ -74,14 +73,14 @@ export const getUser = async (req, res) => {
         // Find user by ID
         const user = await User.findById(userId);
         if (!user) {
-            throw new Error("User not found");
+            throw new Error('User not found');
         }
 
         return res.status(200).json({ user });
     } catch (error) {
         throw new Error(`Error getting user: ${error.message}`);
     }
-}
+};
 
 export const getAllUsers = async (req, res) => {
     try {
@@ -91,5 +90,4 @@ export const getAllUsers = async (req, res) => {
     } catch (error) {
         throw new Error(`Error getting all users: ${error.message}`);
     }
-}
-
+};

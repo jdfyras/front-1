@@ -3,10 +3,10 @@ const nodemailer = require('nodemailer');
 const { MongoClient } = require('mongodb');
 const bcrypt = require('bcrypt');
 const express = require('express');*/
-import nodemailer from 'nodemailer'
-import {MongoClient} from 'mongodb'
-import bcrypt from 'bcryptjs'
-import express from "express"
+import nodemailer from 'nodemailer';
+import { MongoClient } from 'mongodb';
+import bcrypt from 'bcryptjs';
+import express from 'express';
 
 // Configuration du transporteur Nodemailer
 const transporter = nodemailer.createTransport({
@@ -20,7 +20,7 @@ const transporter = nodemailer.createTransport({
 
 // Route pour réinitialiser le mot de passe
 
-const reset = async (req,res)=>{
+const reset = async (req, res) => {
     const { email } = req.body; // Récupérer l'e-mail de la requête
 
     try {
@@ -30,21 +30,19 @@ const reset = async (req,res)=>{
         await updateUserPassword(email, newPassword);
 
         // Préparer le contenu de l'e-mail
-         // Envoyer l'e-mail de réinitialisation
-         const info = await transporter.sendMail({
+        // Envoyer l'e-mail de réinitialisation
+        const info = await transporter.sendMail({
             from: '"SAMAR👻" <gerard.murphy99@ethereal.email>', // sender address
-            to: "gerard.murphy99@ethereal.email", // list of receivers
-            subject: "Hello ✔", // Subject line
-            text: "Your new password ! ", // plain text body
+            to: 'gerard.murphy99@ethereal.email', // list of receivers
+            subject: 'Hello ✔', // Subject line
+            text: 'Your new password ! ', // plain text body
             html: `<b>New password : ${newPassword}?</b>` // html body
-          });
+        });
         res.json({ message: 'E-mail de réinitialisation envoyé avec succès.' });
-        
     } catch (error) {
         console.error(error);
         res.status(500).json({ message: "Échec de l'envoi de l'e-mail de réinitialisation." });
-    }
-    finally{
+    } finally {
         return res;
     }
 };
@@ -62,14 +60,12 @@ function generateRandomPassword() {
 
 // Fonction pour mettre à jour le mot de passe de l'utilisateur dans la base de données
 async function updateUserPassword(email, newPassword) {
-    
     /*
     
     ------------HERE--------------------
     
      */
     const client = await MongoClient.connect('mongodb://localhost:27017');
-    
 
     const user = await collection.findOne({ email });
     if (!user) {
@@ -83,5 +79,4 @@ async function updateUserPassword(email, newPassword) {
     await client.close();
 }
 
-
-export default reset
+export default reset;
