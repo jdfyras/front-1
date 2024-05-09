@@ -13,7 +13,10 @@ const router = express.Router();
 
 router.post('/add', isAuth, isAdmin, addUser);
 router.put('/:id', isAuth, isAdmin, updateUser);
-router.get('/:id', isAuth, isAdmin, getUser);
+router.get(
+    '/:id', // isAuth, isAdmin,
+    getUser
+);
 router.get('/', getAllUsers);
 router.delete('/deluser', isAuth, isAdmin, deleteUser);
 

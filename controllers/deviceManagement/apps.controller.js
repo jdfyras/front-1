@@ -30,6 +30,7 @@ export const addApp = async (req, res) => {
         // Send response
         res.status(200).json({ msg: 'new apareil was created ', data: newData });
     } catch (error) {
+        console.error(error);
         res.status(400).json({ error: error.message });
     }
 };
@@ -50,6 +51,7 @@ export const deleteApp = async (req, res) => {
 
         return res.status(200).json({ msg: 'device delete success' });
     } catch (error) {
+        console.error(error);
         throw new Error(`Error deleting user: ${error.message}`);
     }
 };
@@ -73,6 +75,7 @@ export const getApp = async (req, res) => {
 
         return res.status(200).json({ msg: 'device delete success', devices, relationDevice });
     } catch (error) {
+        console.error(error);
         throw new Error(`Error geting  device: ${error.message}`);
     }
 };
@@ -83,6 +86,7 @@ export const getAllApps = async (req, res) => {
 
         return res.status(200).json({ msg: 'success', devices });
     } catch (error) {
+        console.error(error);
         throw new Error(`Error geting device: ${error.message}`);
     }
 };
@@ -97,6 +101,7 @@ export const getUserDevices = async (req, res) => {
         const devices = [...armoirs, ...iotDevices, ...transformators];
         return res.status(200).json({ msg: 'success', devices });
     } catch (error) {
+        console.error(error);
         throw new Error(`Error geting device: ${error.message}`);
     }
 };

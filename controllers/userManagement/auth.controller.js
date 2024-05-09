@@ -16,9 +16,11 @@ const generateRefreshToken = (userId) => {
 export const login = async (req, res) => {
     try {
         const { email, password } = req.body;
+        console.log("🚀 ~ login ~ email, password :", email, password )
 
         // Find user by email
         const user = await User.findOne({ email });
+        console.log("🚀 ~ login ~ user:", user)
         if (!user) {
             return res.status(401).json({ error: 'Invalid email or password, mochkel hna' });
         }
@@ -55,7 +57,7 @@ export const logout = async (req, res) => {
         // Send response
         res.status(200).json({ message: 'Logout successful' });
     } catch (error) {
-        console.error(`Error logging out: ${error.message}`);
+        console.error(`Error logging out: ${error}`);
         res.status(500).json({ error: 'An error occurred while logging out' });
     }
 };

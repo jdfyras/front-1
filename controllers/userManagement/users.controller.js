@@ -30,6 +30,7 @@ export const addUser = async (req, res) => {
         // Send response
         res.status(200).json({ msg: 'new user was created ', data: newUser });
     } catch (error) {
+        console.error(error);
         res.status(400).json({ error: error.message });
     }
 };
@@ -46,6 +47,7 @@ export const updateUser = async (req, res) => {
 
         return res.status(200).json({ updatedUser });
     } catch (error) {
+        console.error(error);
         return res.status(500).json({ error: `Error updating user: ${error.message}` });
     }
 };
@@ -63,21 +65,25 @@ export const deleteUser = async (userId) => {
 
         return user;
     } catch (error) {
+        console.error(error);
         throw new Error(`Error deleting user: ${error.message}`);
     }
 };
 
 export const getUser = async (req, res) => {
     const userId = req.params.id;
+    console.log('🚀 ~ getUser ~ userId:', userId);
     try {
         // Find user by ID
         const user = await User.findById(userId);
         if (!user) {
             throw new Error('User not found');
         }
+        console.log('🚀 ~ getUser ~ user:', user);
 
         return res.status(200).json({ user });
     } catch (error) {
+        console.error(error);
         throw new Error(`Error getting user: ${error.message}`);
     }
 };
@@ -86,8 +92,10 @@ export const getAllUsers = async (req, res) => {
     try {
         // Find all users
         const users = await User.find();
+        console.log('🚀 ~ getAllUsers ~ users:', users);
         return res.status(200).json({ users });
     } catch (error) {
+        console.error(error);
         throw new Error(`Error getting all users: ${error.message}`);
     }
 };
